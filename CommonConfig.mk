@@ -15,6 +15,9 @@
 # Common path
 COMMON_PATH := device/sony/common
 
+# Do not build proprietary capability
+TARGET_USES_AOSP := true
+
 TARGET_BOARD_AUTO := true
 
 TARGET_NO_RADIOIMAGE := true
@@ -27,7 +30,6 @@ ifneq ($(BOARD_USE_ENFORCING_SELINUX),true)
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 endif
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0
-BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
 BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x3F ehci-hcd.park=3
 BOARD_KERNEL_CMDLINE += dwc3.maximum_speed=high dwc3_msm.prop_chg_detect=Y
 BOARD_KERNEL_CMDLINE += coherent_pool=8M
@@ -51,7 +53,6 @@ BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 
 # Camera
-TARGET_USES_AOSP := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 BOARD_QTI_CAMERA_V2 := true
 CAMERA_DAEMON_NOT_PRESENT := true
